@@ -7,6 +7,6 @@
         PeriodEndRun,
         PeriodEndReports,
         PeriodEndStop,
-        PeriodEndIlrReprocessing
+        PeriodEndIlrReprocessingJob
     }
 }
