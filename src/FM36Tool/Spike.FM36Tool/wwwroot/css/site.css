@@ -98,7 +98,7 @@ app {
             }
 
         .sidebar .nav-item .nav-link-wide {
-             padding: 0; 
+             font-size: small;
         }
 
         .content {
