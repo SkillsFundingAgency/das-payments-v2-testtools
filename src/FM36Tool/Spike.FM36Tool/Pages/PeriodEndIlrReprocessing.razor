@@ -62,7 +62,7 @@
     public async Task SendPeriodEndTask()
     {
         isDisabled = true;
-        jobId = await PeriodEndService.SendPeriodEndTask(PeriodEndTask.PeriodEndIlrReprocessingJob, periodEndTaskData.AcademicYear, periodEndTaskData.CollectionPeriod);
+        jobId = await PeriodEndService.SendPeriodEndTask(PeriodEndTask.PeriodEndIlrReprocessing, periodEndTaskData.AcademicYear, periodEndTaskData.CollectionPeriod);
         isDisabled = false;
     }
 }
