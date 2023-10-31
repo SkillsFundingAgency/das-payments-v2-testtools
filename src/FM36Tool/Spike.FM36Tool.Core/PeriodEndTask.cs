@@ -8,6 +8,6 @@
         PeriodEndReports,
         PeriodEndStop,
         PeriodEndIlrReprocessing,
-        PeriodEndFcsHandOverCompleteJob
+        PeriodEndFcsHandoverComplete
     }
 }

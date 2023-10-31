@@ -62,7 +62,7 @@
     public async Task SendPeriodEndTask()
     {
         isDisabled = true;
-        jobId = await PeriodEndService.SendPeriodEndTask(PeriodEndTask.PeriodEndFcsHandOverCompleteJob, periodEndTaskData.AcademicYear, periodEndTaskData.CollectionPeriod);
+        jobId = await PeriodEndService.SendPeriodEndTask(PeriodEndTask.PeriodEndFcsHandoverComplete, periodEndTaskData.AcademicYear, periodEndTaskData.CollectionPeriod);
         isDisabled = false;
     }
 }
