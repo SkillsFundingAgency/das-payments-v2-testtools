@@ -97,9 +97,13 @@ app {
                 color: white;
             }
 
-.content {
-    padding-top: 1.1rem;
-}
+        .sidebar .nav-item .nav-link-wide {
+             font-size: small;
+        }
+
+        .content {
+            padding-top: 1.1rem;
+        }
 
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);

@@ -1,4 +1,4 @@
-﻿@page "/periodendsubmissionwindowvalidation"
+﻿@page "/periodendfcshandovercomplete"
 
 @using Spike.FM36Tool.Data
 @using Spike.FM36Tool.Application.PeriodEnd
@@ -6,7 +6,7 @@
 @inject PeriodEndService PeriodEndService
 
 <h1>
-     Period end submission window validation
+     Period end FCS Handover Complete
 </h1>
 
 <EditForm Model=@periodEndTaskData OnSubmit="@SendPeriodEndTask">
@@ -41,7 +41,7 @@
             </select>
         </div>
     </div>
-    <button type="submit" disabled="@isDisabled" class="btn btn-primary">Trigger submission window validation</button>
+    <button type="submit" disabled="@isDisabled" class="btn btn-primary">Trigger FCS Handover Complete</button>
 </EditForm>
 
 <div>
@@ -62,7 +62,7 @@
     public async Task SendPeriodEndTask()
     {
         isDisabled = true;
-        jobId = await PeriodEndService.SendPeriodEndTask(PeriodEndTask.PeriodEndSubmissionWindowValidation, periodEndTaskData.AcademicYear, periodEndTaskData.CollectionPeriod);
+        jobId = await PeriodEndService.SendPeriodEndTask(PeriodEndTask.PeriodEndFcsHandoverComplete, periodEndTaskData.AcademicYear, periodEndTaskData.CollectionPeriod);
         isDisabled = false;
     }
 }
