@@ -13,7 +13,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputAcademicYear">Academic year</label>
-            <select id="inputAcademicYear" class="custom-select" @bind="periodEndTaskData.AcademicYear">
+            <select id="inputAcademicYear" class="custom-select" @bind="periodEndTaskData.AcademicYear" required>
                 <option selected value="1920">1920</option>
                 <option value="2021">2021</option>
                 <option value="2122">2122</option>
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group col-md-6">
             <label for="inputCollectionPeriod">Collection Period</label>
-            <select id="inputCollectionPeriod" class="custom-select" @bind="periodEndTaskData.CollectionPeriod">
+            <select id="inputCollectionPeriod" class="custom-select" @bind="periodEndTaskData.CollectionPeriod" required>
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
