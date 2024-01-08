@@ -42,7 +42,6 @@ namespace Spike.FM36Tool
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             AddDcServices(services);
         }
 

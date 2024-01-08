@@ -6,6 +6,7 @@
         PeriodEndSubmissionWindowValidation,
         PeriodEndRun,
         PeriodEndReports,
-        PeriodEndStop
+        PeriodEndStop,
+        PeriodEndIlrReprocessingJob
     }
 }
