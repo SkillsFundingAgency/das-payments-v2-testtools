@@ -6,6 +6,6 @@ namespace Spike.FM36Tool.Application.DASEarningsBridgeQueue
 {
     public interface IDASEarningsBridgeQueueService
     {
-        Task<int> SendMessageToServiceBus(IEnumerable<CalculateGrowthAndSkillsPayments> growthAndSkillsCommands);
+        Task SendMessageToServiceBus(CalculateGrowthAndSkillsPayments growthAndSkillsCommand);
     }
 }

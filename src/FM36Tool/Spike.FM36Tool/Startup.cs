@@ -69,6 +69,7 @@ namespace Spike.FM36Tool
             services.AddScoped<TopicPublishingServiceFactory>();
             services.AddScoped<PeriodEndService>();
             services.AddSingleton<IDASEarningsBridgeQueueService, DASEarningsBridgeQueueService>();
+            services.Configure<DASServiceBusSettings>(Configuration.GetSection("DASServiceBusSettings"));
         }
 
 

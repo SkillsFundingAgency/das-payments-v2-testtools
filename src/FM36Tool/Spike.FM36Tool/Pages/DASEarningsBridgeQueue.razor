@@ -59,14 +59,14 @@
                 Converters = { new JsonStringEnumConverter() }
             };
 
-            var growthAndSkillsCommands = JsonSerializer.Deserialize<List<CalculateGrowthAndSkillsPayments>>(
+            var growthAndSkillsCommand = JsonSerializer.Deserialize<CalculateGrowthAndSkillsPayments>(
                 dasEarningsBridgeQueueTaskData.Message, options);
-            if (growthAndSkillsCommands == null || !growthAndSkillsCommands.Any())
+            if (growthAndSkillsCommand == null)
             {
                 statusMessage = "Invalid message format.";
                 return;
             }
-            await DASEarningsBridgeQueueService.SendMessageToServiceBus(growthAndSkillsCommands);
+            await DASEarningsBridgeQueueService.SendMessageToServiceBus(growthAndSkillsCommand);
             statusMessage = $"Message sent successfully.";
             dasEarningsBridgeQueueTaskData.Message = string.Empty;
         }
