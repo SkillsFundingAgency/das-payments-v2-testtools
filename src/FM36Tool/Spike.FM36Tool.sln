@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spike.FM36Tool", "Spike.FM36Tool\Spike.FM36Tool.csproj", "{92B91FD3-CA3F-43A9-8483-A2CD15194802}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spike.FM36Tool.Application", "Spike.FM36Tool.Application\Spike.FM36Tool.Application.csproj", "{7A55D5D7-88B9-4617-AF27-6DC78757C6C9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spike.FM36Tool.Core", "Spike.FM36Tool.Core\Spike.FM36Tool.Core.csproj", "{85E55E6D-070F-430F-A196-196F8083AE6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

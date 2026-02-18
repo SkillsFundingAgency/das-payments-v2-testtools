@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Azure.Storage.Files.Shares;
 using ESFA.DC.FileService;
 using ESFA.DC.FileService.Config;
@@ -14,16 +10,15 @@ using ESFA.DC.Queueing.Interface.Configuration;
 using ESFA.DC.Serialization.Interfaces;
 using ESFA.DC.Serialization.Json;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Spike.FM36Tool.Application.DASEarningsBridgeQueue;
 using Spike.FM36Tool.Application.JobContext;
 using Spike.FM36Tool.Application.PeriodEnd;
 using Spike.FM36Tool.Application.Submission;
-using Spike.FM36Tool.Data;
+using System;
 
 namespace Spike.FM36Tool
 {
@@ -73,6 +68,7 @@ namespace Spike.FM36Tool
             services.AddScoped<AzureFileStorageFm36FolderSubmission>();
             services.AddScoped<TopicPublishingServiceFactory>();
             services.AddScoped<PeriodEndService>();
+            services.AddSingleton<IDASEarningsBridgeQueueService, DASEarningsBridgeQueueService>();
         }
 
 
