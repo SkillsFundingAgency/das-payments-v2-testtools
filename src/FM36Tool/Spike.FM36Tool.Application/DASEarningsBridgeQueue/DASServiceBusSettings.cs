@@ -4,6 +4,5 @@
     {
         public string ConnectionString { get; set; }
         public string EndpointName { get; set; }
-        public string FailedMessagesQueue { get; set; }
     }
 }
