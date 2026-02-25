@@ -3,6 +3,6 @@
     public class DASServiceBusSettings
     {
         public string ConnectionString { get; set; }
-        public string EndpointName { get; set; }
+        public string QueueName { get; set; }
     }
 }

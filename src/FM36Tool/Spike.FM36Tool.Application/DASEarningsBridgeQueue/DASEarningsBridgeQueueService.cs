@@ -29,7 +29,7 @@ namespace Spike.FM36Tool.Application.DASEarningsBridgeQueue
             endpointConfiguration.SendOnly();
             var transport = endpointConfiguration.UseTransport<AzureServiceBusTransport>();
             transport.ConnectionString(_settings.ConnectionString);
-            var endpointName = _settings.EndpointName;
+            var endpointName = _settings.QueueName;
             endpointConfiguration.Conventions()
                                  .DefiningCommandsAs(type => type == typeof(CalculateGrowthAndSkillsPayments));
             transport.Routing()
