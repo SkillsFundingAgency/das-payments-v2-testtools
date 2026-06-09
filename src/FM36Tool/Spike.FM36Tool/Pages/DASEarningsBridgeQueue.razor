@@ -1,0 +1,82 @@
+﻿@page "/dasearningsbridgequeue"
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using SFA.DAS.Payments.EarningEvents.Messages.External.Commands
+@using Spike.FM36Tool.Application
+@using Spike.FM36Tool.Application.DASEarningsBridgeQueue
+@using Spike.FM36Tool.Application.PeriodEnd
+@using Spike.FM36Tool.Core
+@using Spike.FM36Tool.Data
+@inject IDASEarningsBridgeQueueService DASEarningsBridgeQueueService
+
+<h1>
+    DAS Earnings Bridge Queue
+</h1>
+
+<EditForm Model=@dasEarningsBridgeQueueTaskData OnSubmit="@SendMessageTask">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <textarea id="jsonInput" @bind="dasEarningsBridgeQueueTaskData.Message" class="form-control" rows="15"
+                      placeholder="Enter the JSON payload for the earnings bridge queue here..."></textarea>
+        </div>
+    </div>
+    <button type="submit" disabled="@isDisabled" class="btn btn-primary">Send</button>
+</EditForm>
+<br/>
+<div>
+    @if (!string.IsNullOrEmpty(statusMessage))
+    {
+        <div class="alert alert-info">
+            @statusMessage
+        </div>
+    }
+</div>
+
+@code {
+
+    private DasEarningsBridgeQueue dasEarningsBridgeQueueTaskData = new DasEarningsBridgeQueue();
+    private bool isDisabled;
+
+    protected override void OnInitialized()
+    {
+    }
+
+    private string statusMessage = string.Empty;
+
+    public async Task SendMessageTask()
+    {
+        isDisabled = true;
+        try
+        {
+            if (string.IsNullOrWhiteSpace(dasEarningsBridgeQueueTaskData.Message))
+            {
+                statusMessage = "Message cannot be empty.";
+                return;
+            }
+            var options = new JsonSerializerOptions
+            {
+                Converters = { new JsonStringEnumConverter() }
+            };
+
+            var growthAndSkillsCommand = JsonSerializer.Deserialize<CalculateGrowthAndSkillsPayments>(
+                dasEarningsBridgeQueueTaskData.Message, options);
+            if (growthAndSkillsCommand == null)
+            {
+                statusMessage = "Invalid message format.";
+                return;
+            }
+            await DASEarningsBridgeQueueService.SendMessageToServiceBus(growthAndSkillsCommand);
+            statusMessage = $"Message sent successfully.";
+            dasEarningsBridgeQueueTaskData.Message = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Error sending message: {ex.Message}";
+        }
+        finally
+        {
+            isDisabled = false;
+        }
+    }
+}

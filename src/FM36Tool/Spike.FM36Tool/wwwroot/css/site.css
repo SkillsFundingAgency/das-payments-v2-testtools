@@ -184,4 +184,7 @@ app {
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+    .sidebar {
+        width: 300px; /* increase from default 250px */
+    }     
 }
